@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JavaScript: Moving an Image</title>
+<script type="application/ecmascript">
+
+// --CHANGE THESE IF REQUIRED--
+// Initial x-position of image
+var x = 400;
+// Initial y-position of image
+var y =150;
+// Pixels to move in each step
+var inc = 10;
+
+function Init()
+{
+   document.getElementById('img1').style.left = x + 'px';
+   document.getElementById('img1').style.top = y + 'px';
+}
+
+</script>
+
+
+<style>
+#box
+{
+   width: 500px;
+   height: 300px;
+   position: relative;
+   margin: 20px auto 0px auto;
+   border: 5px outset #000;
+   overflow: hidden;
+}
+
+.image
+{
+   position: absolute;
+   z-index: 100;
+}
+</style>
+</head>
+
+<body onload="javascript:Init()">
+<div id="box"><img class="image" id="img1" src="ball.gif"/></div>
+
+</body>
+</html>

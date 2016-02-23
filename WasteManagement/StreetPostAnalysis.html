@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>StreetPost Analysis</title>
+		<meta name="description" content="Sticky Table Headers Revisited: Creating functional and flexible sticky table headers" />
+		<meta name="keywords" content="Sticky Table Headers Revisited" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/btn.css" />
+		
+		
+	</head>
+	<body>
+		<div class="container">
+			<!-- Top Navigation -->
+			<div class="codrops-top clearfix">
+				
+			</div>
+			<header>
+				<h1>Waste Management <span>An Optimized Garbage Collection</span></h1>	
+					<nav class="codrops-demos">
+					<a class="current-demo" href="index.html" title="Basic Usage">Residents</a>
+					<a href="wasteManagementCompany.html" title="Wide Tables">Performance</a>
+					<a href="dashboard.html" title="Wide Tables">Dashboard</a>
+					<a href="StreetPost.html" title="Wide Tables">Street Posts</a>
+					<a href="TrashBin.html" title="Wide Tables">TrashBin</a>
+					<a href="TrashBinAnalysis.html" title="Wide Tables">TrashBin Analysis</a>
+					<a href="StreetPostAnalysis.html" title="Wide Tables">StreetPost Analysis</a>
+
+				</nav>
+			</header>
+			<div class="component">
+			
+			<button onclick="findAllStreetPole();" class="btn">Refresh</button>
+			
+			<div style="width: 50%">
+			<canvas id="canvas" height="450" width="600"></canvas>
+			</div>
+		
+			<div id="dd">
+	
+			
+			</div>
+			
+		</div><!-- /container -->
+		
+		<script language="javascript">
+		var broken=false;
+		function callQuery(params, call) {
+			var http = new XMLHttpRequest();
+			var url = "http://54.175.145.156:8080/fid-TqlInterface";
+			http.open("POST", url, true);
+			http.setRequestHeader("Content-Type", "text/xml");
+			//Send the proper header information along with the request
+			
+			//http.setRequestHeader("Content-length", params.length);
+			//http.setRequestHeader("Connection", "close");
+
+			http.onreadystatechange = function() {//Call a function when the state changes.
+				if(http.readyState == 4 && http.status == 200) {
+					//alert(http.responseText);
+					var div = document.getElementById("dd");
+					div.innerHTML="";
+					var parser = new DOMParser();
+					var xmlDoc = parser.parseFromString(http.responseText,"text/xml");
+					var jsonDoc = JSON.parse(xml2json(xmlDoc,""));
+					var trashArr_arr = _.pluck(jsonDoc.Find.Result,"StreetPole");
+					 var count1 = 0;
+					 var count2 = 0;
+					 for(k=0 ; k < trashArr_arr.length ;k++ )
+					 {
+							
+							var hasIbeacon =  trashArr_arr[k].HasIBeacon["@Value"];
+							var hasOdor =  trashArr_arr[k].HasOdor["@Value"];
+							
+							if (hasIbeacon == "true")
+							{
+							count1 = count1 +1;
+							}	
+							
+							if (hasOdor == "true")
+							{
+							count2 = count2 +1;
+							}			
+						
+					 }	
+					
+					
+					
+					var barChartData = {
+			labels : ["IBeacon","Odor Sensor"],
+			datasets : [
+				{
+					fillColor : "rgba(0,255,0,0.3)",
+					strokeColor : "rgba(0,255,0,0.3)",
+					highlightFill: "rgba(0,0,255,0.3)",
+					highlightStroke: "rgba(220,220,220,1)",
+					data : [count1,count2]			
+					},
+				
+			]
+
+		}
+		var ctx = document.getElementById("canvas").getContext("2d");
+		window.myBar = new Chart(ctx).Bar(barChartData, {
+			responsive : true
+		});
+					
+				}
+			}
+			http.send(params);
+		
+		}
+		
+		function findAllStreetPole() {
+			callQuery("<find format='all'><StreetPole><Id ne=''/></StreetPole></find>","all");
+		}
+		
+		
+		
+	
+	
+		
+	</script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+		<script src="js/jquery.stickyheader.js"></script>
+		<script src="js/Chart.min.js"></script>
+		<script src="js/xml2json.js"></script>
+		<script src="js/underscore-min.js"></script>
+	</body>
+</html>

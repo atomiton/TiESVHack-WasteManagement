@@ -1,0 +1,50 @@
+public static final String[] TRASH_BIN_ROUTE_1 = {"Bin[0]", "Bin[1]", "Bin[2]", "Bin[3]", "Bin[4]", "Bin[5]", "Bin[6]", "Bin[7]"};
+	public static final String[] TRASH_BIN_ROUTE_2 = {"Bin[8]", "Bin[9]", "Bin[10]", "Bin[11]", "Bin[12]", "Bin[13]", "Bin[14]",
+		"Bin[15]"};
+	public static final String[] TRASH_BIN_ROUTE_3 = {"Bin[16]", "Bin[17]", "Bin[18]", "Bin[19]", "Bin[20]", "Bin[21]",
+		"Bin[22]", "Bin[23]", "Bin[24]"};
+	
+	public static final String[] DUMPSITE_ROUTE_1 = {"DumpSite[0]", "DumpSite[1]", "DumpSite[2]", "DumpSite[3]", "DumpSite[4]"
+		, "DumpSite[5]", "DumpSite[6]", "DumpSite[7]", "DumpSite[8]", "DumpSite[9]", "DumpSite[10]", "DumpSite[11]", "DumpSite[12]"
+		, "DumpSite[13]", "DumpSite[14]", "DumpSite[15]", "DumpSite[16]", "DumpSite[17]", "DumpSite[18]", "DumpSite[19]"};
+	public static final String[] DUMPSITE_ROUTE_2 = {"DumpSite[20]", "DumpSite[21]", "DumpSite[22]", "DumpSite[23]", "DumpSite[24]"
+		, "DumpSite[25]", "DumpSite[26]", "DumpSite[27]", "DumpSite[28]", "DumpSite[29]", "DumpSite[30]", "DumpSite[31]", 
+		"DumpSite[32]" , "DumpSite[33]", "DumpSite[34]", "DumpSite[35]", "DumpSite[36]", "DumpSite[37]", "DumpSite[38]", 
+		"DumpSite[39]"};
+	public static final String[] DUMPSITE_ROUTE_3 = {"DumpSite[40]", "DumpSite[41]", "DumpSite[42]", "DumpSite[43]", "DumpSite[44]"
+		, "DumpSite[45]", "DumpSite[46]", "DumpSite[47]", "DumpSite[48]", "DumpSite[49]", "DumpSite[50]", "DumpSite[51]"
+		, "DumpSite[52]", "DumpSite[53]", "DumpSite[54]", "DumpSite[55]", "DumpSite[56]", "DumpSite[57]", "DumpSite[58]"
+		, "DumpSite[59]"};
+	public static final String[] DUMPSITE_ROUTE_4 = {"DumpSite[60]", "DumpSite[61]", "DumpSite[62]", "DumpSite[63]", "DumpSite[64]"
+		, "DumpSite[65]", "DumpSite[66]", "DumpSite[67]", "DumpSite[68]", "DumpSite[69]", "DumpSite[70]", "DumpSite[71]"
+		, "DumpSite[72]", "DumpSite[73]", "DumpSite[74]", "DumpSite[75]", "DumpSite[76]", "DumpSite[77]", "DumpSite[78]"
+		, "DumpSite[79]"};
+	public static final String[] DUMPSITE_ROUTE_5 = {"DumpSite[80]", "DumpSite[81]", "DumpSite[82]", "DumpSite[83]", "DumpSite[84]"
+		, "DumpSite[85]", "DumpSite[86]", "DumpSite[87]", "DumpSite[88]", "DumpSite[89]", "DumpSite[90]", "DumpSite[91]"
+		, "DumpSite[92]", "DumpSite[93]", "DumpSite[94]", "DumpSite[95]", "DumpSite[96]", "DumpSite[97]", "DumpSite[98]"
+		, "DumpSite[99]"};
+	public static final String[] DUMPSITE_ROUTE_6 = {"DumpSite[100]", "DumpSite[101]", "DumpSite[102]", "DumpSite[103]", 
+		"DumpSite[104]", "DumpSite[105]", "DumpSite[106]", "DumpSite[107]", "DumpSite[108]", "DumpSite[109]", "DumpSite[110]", 
+		"DumpSite[111]"
+		, "DumpSite[112]", "DumpSite[113]", "DumpSite[114]", "DumpSite[115]", "DumpSite[116]", "DumpSite[117]", "DumpSite[118]"
+		, "DumpSite[119]"};
+	public static final String[] DUMPSITE_ROUTE_7 = {"DumpSite[120]", "DumpSite[121]", "DumpSite[122]", "DumpSite[123]", 
+		"DumpSite[124]"
+		, "DumpSite[125]", "DumpSite[126]", "DumpSite[127]", "DumpSite[128]", "DumpSite[129]", "DumpSite[130]", "DumpSite[131]"
+		, "DumpSite[132]", "DumpSite[133]", "DumpSite[134]", "DumpSite[135]", "DumpSite[136]", "DumpSite[137]", "DumpSite[138]"
+		, "DumpSite[139]"};
+	public static final String[] DUMPSITE_ROUTE_8 = {"DumpSite[140]", "DumpSite[141]", "DumpSite[142]", "DumpSite[143]", 
+		"DumpSite[144]"
+		, "DumpSite[145]", "DumpSite[146]", "DumpSite[147]", "DumpSite[148]", "DumpSite[149]", "DumpSite[150]", "DumpSite[151]"
+		, "DumpSite[152]", "DumpSite[153]", "DumpSite[154]", "DumpSite[155]", "DumpSite[156]", "DumpSite[157]", "DumpSite[158]"
+		, "DumpSite[159]"};
+	public static final String[] DUMPSITE_ROUTE_9 = {"DumpSite[160]", "DumpSite[161]", "DumpSite[162]", "DumpSite[163]", 
+		"DumpSite[164]"
+		, "DumpSite[165]", "DumpSite[166]", "DumpSite[167]", "DumpSite[168]", "DumpSite[169]", "DumpSite[170]", "DumpSite[171]"
+		, "DumpSite[172]", "DumpSite[173]", "DumpSite[174]", "DumpSite[175]", "DumpSite[176]", "DumpSite[177]", "DumpSite[178]"
+		, "DumpSite[179]"};
+	public static final String[] DUMPSITE_ROUTE_10 = {"DumpSite[180]", "DumpSite[181]", "DumpSite[182]", "DumpSite[183]"
+		, "DumpSite[184]", "DumpSite[185]", "DumpSite[186]", "DumpSite[187]", "DumpSite[188]", "DumpSite[189]", "DumpSite[190]"
+		, "DumpSite[191]", "DumpSite[192]", "DumpSite[193]", "DumpSite[194]", "DumpSite[195]", "DumpSite[196]", "DumpSite[197]"
+		, "DumpSite[198]", "DumpSite[199]"};
+	

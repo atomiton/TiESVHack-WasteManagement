@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>DashBoard</title>
+		<meta name="description" content="Sticky Table Headers Revisited: Creating functional and flexible sticky table headers" />
+		<meta name="keywords" content="Sticky Table Headers Revisited" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/clock.css" />
+		<link rel="stylesheet" type="text/css" href="css/simulate_button.css" />
+		<link rel="stylesheet" type="text/css" href="css/btn.css" />
+		
+	</head>
+	<body>
+		<div class="container">
+			<!-- Top Navigation -->
+			<div class="codrops-top clearfix">
+				
+			</div>
+			<header>
+				<h1>Waste Management <span>An Optimized Garbage Collection</span></h1>	
+					<nav class="codrops-demos">
+					<a class="current-demo" href="index.html" title="Basic Usage">Residents</a>
+					<a href="wasteManagementCompany.html" title="Wide Tables">Performance</a>
+					<a href="dashboard.html" title="Wide Tables">Dashboard</a>
+					<a href="StreetPost.html" title="Wide Tables">Street Posts</a>
+					<a href="TrashBin.html" title="Wide Tables">TrashBin</a>
+					<a href="TrashBinAnalysis.html" title="Wide Tables">TrashBin Analysis</a>
+					<a href="StreetPostAnalysis.html" title="Wide Tables">StreetPost Analysis</a>
+
+				</nav>
+			</header>
+			<div class="component">
+			<h2>Instrument Trashbin , Street Post</h2>
+			
+		<div >
+		<text >Enter Bin ID  : </text><input type="text" id="idTxt" class="text" style="color:#888;" value="Example:Bin[0]"  /><button onclick="InstrumentTrashBin(document.getElementById('idTxt').value)" class="btn">Instrument Ibeacon by ID</button><button onclick="InstrumentIbeaconTrashBinAll()" class="btn">Instrument All  </button>
+		</div>
+				
+		<br/>
+		<div >
+		<text >Enter Bin ID  : </text> <input type="text" id="idTxt1" class="textbox" style="color:#888;" value="Example:Bin[0]"/><button onclick="InstrumentRfTrashBin(document.getElementById('idTxt1').value)" class="btn">InstrumentRf Sensor by ID</button><button onclick="InstrumentRfTrashBinAll()" class="btn">Instrument All  </button>
+		</div>
+		<br/>
+		<div >
+		<text >Enter pole ID : </text> <input type="text" id="idTxt2" class="textbox" style="color:#888;" value="Example:Pole[0]"/><button onclick="InstrumentStreetPost(document.getElementById('idTxt2').value)" class="btn">Instrument Ibeacon on streetpost by ID</button></button><button onclick="InstrumentStreetPostAll()" class="btn">Instrument All  </button>
+		</div>
+		<br/>
+		<div >
+		<text >Enter Pole ID  : </text> <input type="text" id="idTxt3" class="textbox" style="color:#888;" value="Example:Pole[0]" /><button onclick="InstrumentOdorSensor(document.getElementById('idTxt3').value)" class="btn">Instrument odor Sensor by ID</button><button onclick="InstrumentStreetPostAll()" class="btn">Instrument All  </button>
+		</div>
+		<br/>
+		<div >
+		<text >Enter ResidentID  : </text> <input type="text" id="idTxt4" class="textbox" style="color:#888;" value="Example:Resident[0]"/><button onclick="SetInfluencer(document.getElementById('idTxt4').value)" class="btn">Influence Resident</button>
+		</div>
+		
+		
+		<br/>
+		<div >
+		<text >Enter Worker  : </text> <input type="text" id="idTxt5"  class="textbox" style="color:#888;" value="Example:Worker[0]"/>
+		<text >Enter DumpSite/TrashBin : </text> <input type="text" id="idTxt6" class="textbox"  style="color:#888;" value="Example:DumpSite[0]"/>
+		<button onclick="SetWorkerRoot(document.getElementById('idTxt5').value,document.getElementById('idTxt6').value)" class="btn">Set Worker Root</button>
+		</div>
+		
+		<div >
+		<text >Turn On/Off Campain : </text><button onclick="turnOnCampain()" class="btn">Turn on campain</button><button onclick="turnOffCampain()" class="btn">Turn Off Campain</button>
+		</div>
+		
+		
+		
+		
+		<div id="dd">
+			</div>
+			
+		</div><!-- /container -->
+		
+		<script language="javascript">
+		function postQuery(param) {
+			
+		var http = new XMLHttpRequest();
+		var url = "http://54.175.145.156:8080/fid-TqlInterface";
+		//var params = "<Atomiton.TqlInterface.InstrumentTrashBin><BinId>Bin[14]</BinId><SensorType>IBeacon</SensorType></Atomiton.TqlInterface.InstrumentTrashBin>";
+		http.open("POST", url, true);
+
+		//Send the proper header information along with the request
+		http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		http.setRequestHeader("Content-length", param.length);
+		http.setRequestHeader("Connection", "close");
+
+		http.onreadystatechange = function() {//Call a function when the state changes.
+			if(http.readyState == 4 && http.status == 200) {
+				alert(http.responseText);
+			}
+		}
+		http.send(param);
+
+		}
+		
+	
+		
+		function InstrumentTrashBin(id) {
+			
+			postQuery("<Atomiton.TqlInterface.InstrumentTrashBin><BinId>"+id+"</BinId><SensorType>IBeacon</SensorType></Atomiton.TqlInterface.InstrumentTrashBin>");
+		}
+		
+		function InstrumentIbeaconTrashBinAll() {
+			
+			postQuery("<Atomiton.TqlInterface.InstrumentTrashBin><BinId ne=\"\"/><SensorType>IBeacon</SensorType></Atomiton.TqlInterface.InstrumentTrashBin>");
+		}
+		
+		function InstrumentRfTrashBinAll() {
+			
+			postQuery("<Atomiton.TqlInterface.InstrumentTrashBin><BinId ne=\"\"/><SensorType>RF</SensorType></Atomiton.TqlInterface.InstrumentTrashBin>");
+		}
+		
+			function InstrumentRfTrashBin(id) {
+			postQuery("<Atomiton.TqlInterface.InstrumentTrashBin><BinId>"+id+"</BinId><SensorType>RF</SensorType></Atomiton.TqlInterface.InstrumentTrashBin>");
+		}
+		
+			function InstrumentStreetPost(id) {
+			postQuery("<Atomiton.TqlInterface.InstrumentStreetPole><PoleId>"+id+"</PoleId><SensorType>IBeacon</SensorType></Atomiton.TqlInterface.InstrumentStreetPole>");
+		}
+		
+		function InstrumentStreetPostAll() {
+			postQuery("<Atomiton.TqlInterface.InstrumentStreetPole><PoleId ne=\"\"/><SensorType>IBeacon</SensorType></Atomiton.TqlInterface.InstrumentStreetPole>");
+		}
+		
+			function InstrumentOdorSensor(id) {
+			postQuery("<Atomiton.TqlInterface.InstrumentStreetPole><PoleId>"+id+"</PoleId><SensorType>Odor</SensorType></Atomiton.TqlInterface.InstrumentStreetPole>");
+		}
+		
+		function InstrumentOdorSensorAll() {
+			postQuery("<Atomiton.TqlInterface.InstrumentStreetPole><PoleId ne=\"\"/><SensorType>Odor</SensorType></Atomiton.TqlInterface.InstrumentStreetPole>");
+		}
+		
+		function SetInfluencer(id) {
+			postQuery("<Atomiton.TqlInterface.SetInfluencer><Id>"+id+"</Id><State>True</State></Atomiton.TqlInterface.SetInfluencer>");
+		}
+	
+		
+		function findAllCompany() {
+			callQuery("<find format='all'><Company><Id ne=''/></Company></find>","all");
+		}
+		
+		function SetWorkerRoot(id,dumpsite) {
+		
+			postQuery("<SetWorkerRoute><Id>"+id+"</Id><Site>"+dumpsite+"</Site></SetWorkerRoute>");
+		}
+		
+		function turnOnCampain() {
+		
+			postQuery("<Atomiton.TqlInterface.SetCampaignStatus><IsActive>true</IsActive></Atomiton.TqlInterface.SetCampaignStatus>");
+		}
+		
+		function turnOffCampain() {
+		
+			postQuery("<Atomiton.TqlInterface.SetCampaignStatus><IsActive>false</IsActive></Atomiton.TqlInterface.SetCampaignStatus>");
+		}
+		
+		
+		
+	
+		
+	</script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+		<script src="js/jquery.stickyheader.js"></script>
+	</body>
+</html>

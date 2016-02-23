@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Waste Management</title>
+		<meta name="description" content="Sticky Table Headers Revisited: Creating functional and flexible sticky table headers" />
+		<meta name="keywords" content="Sticky Table Headers Revisited" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/clock.css" />
+		<link rel="stylesheet" type="text/css" href="css/simulate_button.css" />
+		<link rel="stylesheet" type="text/css" href="css/btn.css" />
+		
+	</head>
+	<body onload="WebSocketTest();">
+		<div class="container">
+			<!-- Top Navigation -->
+			<div >
+				<div class='block1'>
+				<h3 id ='clock' align="center" ></h3>
+			</div>
+			<div>
+				<button onclick="start();" class="start_btn"></a>Start</button>
+				<button onclick="reset();" class="start_btn">Reset</button>
+				<button onclick="pause();" class="start_btn">Pause</button>
+				<button onclick="resume();" class="start_btn">Resume</button>
+			</div>
+			
+			</div>
+			
+			<header>
+				
+				<h1>Waste Management <span>An Optimized Garbage Collection</span></h1>	
+				
+				<nav class="codrops-demos">
+					<a class="current-demo" href="index.html" title="Basic Usage">Residents</a>
+					<a href="wasteManagementCompany.html" title="Wide Tables" target="_blank">Performance</a>
+					<a href="dashboard.html" title="Wide Tables" target="_blank" >Dashboard</a>
+					<a href="StreetPost.html" title="Wide Tables" target="_blank">Street Posts</a>
+					<a href="TrashBin.html" title="Wide Tables" target="_blank">TrashBin</a>
+					<a href="TrashBinAnalysis.html" title="Wide Tables" target="_blank">TrashBin Analysis</a>
+					<a href="StreetPostAnalysis.html" title="Wide Tables" target="_blank">StreetPost Analysis</a>
+
+				</nav>
+			</header>
+			
+			<div class="component" id="resident">
+			<h2>Resident Details</h2>
+			
+			<button onclick="findAllResident();" class="btn">All Resident</button> 
+
+			
+			
+			<table id="myTable">
+			  <tr>
+				<td><b/>ResidentID</td>	
+				<td><b/>LastSite</td>	
+				<td><b/>PhotosTaken</td>	
+				<td><b/>IsInfluencer</td>	
+				<td><b/>SmartphoneId</td>	
+			  </tr>
+			</table>
+			
+			<br>
+			<div id="dd">
+			
+			</div>
+		</div>
+	
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+		<script src="js/jquery.stickyheader.js"></script>
+		<script src="js/xml2json.js"></script>
+		<script src="js/underscore-min.js"></script>
+		<script src="js/index.js"></script>
+		
+		
+		
+	</body>
+</html>

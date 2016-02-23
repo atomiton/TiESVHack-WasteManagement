@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Waste Management</title>
+		<meta name="description" content="Sticky Table Headers Revisited: Creating functional and flexible sticky table headers" />
+		<meta name="keywords" content="Sticky Table Headers Revisited" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/clock.css" />
+		
+	</head>
+	<body>
+		<div class="container">
+			<!-- Top Navigation -->
+			<div >
+				  <div class='block1'>
+					<h2 id ='clock'></h2>
+				  </div>
+			</div>
+			<header>
+				<h1>Waste Management <span>An Optimized Garbage Collection</span></h1>	
+				
+				<nav class="codrops-demos">
+					<a class="current-demo" href="index.html" title="Basic Usage">Residents</a>
+					<a href="performancechart.html" title="Wide Tables">Management Company</a>
+					<a href="index3.html" title="Wide Tables">Instrument</a>
+					<a href="" title="Wide Tables">Street Posts</a>
+					<a href="" title="Wide Tables">Workers</a>
+					<a href="" title="Wide Tables">sites</a>
+
+				</nav>
+			</header>
+			<div class="component">
+			
+			
+			<button onclick="findAllResident();">All Resident</button>
+			<input type="text" id="idTxt" /><button onclick="findResidentByID(document.getElementById('idTxt').value)">Resident by ID</button>
+			<table id="myTable">
+			  <tr>
+				<td><b/>ResidentID</td>	
+				<td><b/>LastSite</td>	
+				<td><b/>PhotosTaken</td>	
+				<td><b/>IsInfluencer</td>	
+				<td><b/>SmartphoneId</td>	
+			  </tr>
+			  
+			 
+			</table>
+			
+			 <div id="demo">
+
+			</div>
+			  <div id="sse">
+         <a href="javascript:WebSocketTest()">Run WebSocket</a>
+      </div>
+			<br>
+
+			<div id="dd">
+			</div>
+			
+		</div><!-- /container -->
+		
+		<script language="javascript">
+  function WebSocketTest()
+         {
+            if ("WebSocket" in window)
+            {
+               
+               
+               // Let us open a web socket
+               var ws = new WebSocket("ws://54.175.145.156:8080/fid-Topic");
+				
+               ws.onopen = function()
+               {
+                  // Web Socket is connected, send data using send()
+                  ws.send("Message to send");
+                 
+               };
+				
+               ws.onmessage = function (evt) 
+               { 
+                  var received_msg = evt.data;
+					var parser = new DOMParser();
+					var xmlDoc = parser.parseFromString(received_msg,"text/xml");
+					var jsonDoc = JSON.parse(xml2json(xmlDoc,""));
+					var publish = _.pluck(jsonDoc,"Tick");
+					
+				
+				  document.getElementById("demo").innerHTML = publish;
+				  document.getElementById("clock").innerHTML = publish;
+               };
+				
+               ws.onclose = function()
+               { 
+                  // websocket is closed.
+                  alert("Connection is closed..."); 
+               };
+            }
+            
+            else
+            {
+               // The browser doesn't support WebSocket
+               alert("WebSocket NOT supported by your Browser!");
+            }
+         }		
+		
+	</script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+		<script src="js/jquery.stickyheader.js"></script>
+		<script src="js/xml2json.js"></script>
+		<script src="js/underscore-min.js"></script>
+		
+	</body>
+</html>
