@@ -20,7 +20,7 @@
 		function callQuery(params, call) {
 		
 			var http = new XMLHttpRequest();
-			var url = "http://54.175.145.156:8080/fid-TqlInterface";
+			var url = "http://54.152.237.135:8080/fid-TqlInterface";
 			http.open("POST", url, true);
 			http.setRequestHeader("Content-Type", "text/xml");
 			//Send the proper header information along with the request
@@ -110,7 +110,7 @@
                
                
                // Let us open a web socket
-               var ws = new WebSocket("ws://54.175.145.156:8080/fid-Topic");
+               var ws = new WebSocket("ws://54.152.237.135:8080/fid-Topic");
 				
                ws.onopen = function()
                {
@@ -170,7 +170,7 @@
 		 function postQuery(param) {
 			
 		var http = new XMLHttpRequest();
-		var url = "http://54.175.145.156:8080/fid-TqlInterface";
+		var url = "http://54.152.237.135:8080/fid-TqlInterface";
 		//var params = "<Atomiton.TqlInterface.InstrumentTrashBin><BinId>Bin[14]</BinId><SensorType>IBeacon</SensorType></Atomiton.TqlInterface.InstrumentTrashBin>";
 		http.open("POST", url, true);
 
